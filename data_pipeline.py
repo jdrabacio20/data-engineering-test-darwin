@@ -1,6 +1,6 @@
 import pandas as pd
 import sqlite3
-from Datetime import Datetime
+from datetime import datetime
 
 def load_data(file_path):
     """Loads data from a CSV file and returns a pandas DataFrame."""
@@ -28,7 +28,7 @@ def valiDate_data(df):
 def transform_data(df):
     """Transforms data by standardising Date format and aggregating Sales by Category."""
     if 'Date' in df.columns:
-        df['Date'] = pd.to_Datetime(df['Date'], errors='coerce').dt.strftime('%Y-%m-%d')
+        df['Date'] = pd.to_datetime(df['Date'], errors='coerce').dt.strftime('%Y-%m-%d')
         print("Dates standardized.")
     
     if 'Category' in df.columns and 'Sales' in df.columns:
